@@ -37,7 +37,7 @@ int our_cat (char *argv)
     size = read(fd, my_tab, 30000);
     if (fd == -1) {
 	my_putstr("Erreur\n");
-	return (84);
+	return (0);
     }
     my_putstr(my_tab);
     close(fd);
@@ -50,7 +50,7 @@ int main(int argc, char **argv)
     
     if (argc < 2) {
 	my_putstr("Erreur\n");
-	return (84);
+	return (0);
     }
     while (cpt < argc) {
 	our_cat(argv[cpt]);
