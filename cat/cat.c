@@ -36,7 +36,6 @@ int our_cat (char *argv)
     fd = open(argv, O_RDONLY);
     size = read(fd, my_tab, 30000);
     if (fd == -1) {
-	my_putstr("Erreur\n");
 	return (0);
     }
     my_putstr(my_tab);
