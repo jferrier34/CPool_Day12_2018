@@ -29,12 +29,11 @@ int  my_putstr(char const *str)
 int our_cat (char *argv)
 {
     int fd;
-    int i;
-    char my_tab[30001];
+    char my_tab[30000];
     int size;
 
     fd = open(argv, O_RDONLY);
-    size = read(fd, my_tab, 30000);
+    size = read(fd, my_tab, 29999);
     if (fd == -1) {
 	return (0);
     }
@@ -45,11 +44,18 @@ int our_cat (char *argv)
 
 int main(int argc, char **argv)
 {
+    int fd = 0;
     int cpt = 1;
-    
-    if (argc < 2) {
-	return (0);
+    char my_tab[30000];
+    int i = 1;
+
+    if (argc <= 1) {
+	while (i == 1) {
+	    read(1, my_tab, 1);
+	    write(1, my_tab, 1);
+	}
     }
+
     while (cpt < argc) {
 	our_cat(argv[cpt]);
 	cpt = cpt + 1;
